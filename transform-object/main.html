@@ -7,7 +7,25 @@
       //
       // TODO: Implement this function.
       //
-      const transformObject = () => {}
+      const transformObject = (inputObj) => {
+          const applyTransformation = (value) => {
+              if (typeof value === 'string') {
+                  return `${value} BLARGH`;
+              } else if (typeof value === 'number') {
+                  return value + 6;
+              } else if (Array.isArray(value)) {
+                  return value.map(applyTransformation);
+              } else if (typeof value === 'object' && value !== null) {
+                  return Object.entries(value).reduce((acc, [key, val]) => {
+                      acc[key] = applyTransformation(val);
+                      return acc;
+                  }, {});
+              }
+              return value;
+          };
+
+          return applyTransformation(inputObj);
+      };
     </script>
   </head>
 
