@@ -1,0 +1,18 @@
+.item-line {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+}
+
+.button-container {
+    display: none;
+    order: -1;
+}
+
+.item-line:hover .button-container {
+    display: inline-flex;
+}
+
+.button.is-danger {
+    margin-right: 3px;
+}
